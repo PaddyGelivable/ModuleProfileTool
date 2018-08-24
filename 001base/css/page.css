@@ -1,14 +1,49 @@
-body, h1, h2, h3, h4, h5, h6, {
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, hr, img, div, label, span, p{
     font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei";
-}
-.pull-left{
-    float: left !important
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .logo{
     display: inline-block;
     width: 250px;
     height: 100px;
     background: url("../image/moduleprofile.png") no-repeat 0px 17px;
-    background-size: auto 80px;
+    background-size: auto 60px;
     margin-top: 0px;
+}
+.pull-left{
+    float: left !important
+}
+.pull-right {
+    float: right!important;
+}
+.logpart {
+    float: right;
+    display: block;
+    color: #666;
+    line-height: 64px;
+    height: 64px;
+    margin-top: 16px;
+    margin-right: 10px;
+}
+.logpart a.first {
+    color: #29ABE2;
+    border-radius: 4px;
+    border: 1px solid #29ABE2;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.logpart a.first:hover {
+    color: white;
+    background-color: #29ABE2;
+    text-decoration: underline;
+}
+
+.logpart #login-join {
+    display: block;
+    float: right;
+    margin-top: 16px;
 }
