@@ -1,15 +1,14 @@
-body{
-    background-image: url(../image/night.png);
-    background-size: 100% 100%;
-    height: 100%
+body, h1, h2, h3, h4, h5, h6, {
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei";
 }
-html{
-    height: 100%
+.pull-left{
+    float: left !important
 }
-@keyframes firstAnimation{
-    from {opacity: 0;}
-    to {opacity: 100;}
+.logo{
+    display: inline-block;
+    width: 250px;
+    height: 100px;
+    background: url("../image/moduleprofile.png") no-repeat 0px 17px;
+    background-size: auto 80px;
+    margin-top: 0px;
 }
-h1, p{
-    animation: firstAnimation 1s infinite;
-} 
