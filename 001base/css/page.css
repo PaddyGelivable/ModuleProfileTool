@@ -41,9 +41,3 @@ body, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, hr, img, div, label, span
     background-color: #29ABE2;
     text-decoration: underline;
 }
-
-.logpart #login-join {
-    display: block;
-    float: right;
-    margin-top: 16px;
-}
