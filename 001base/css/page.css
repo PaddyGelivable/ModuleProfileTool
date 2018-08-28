@@ -5,7 +5,26 @@ body, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, hr, img, div, label, span
     word-wrap: break-word;
     word-break: break-all;
 }
-.logo{
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    vertical-align: top    
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.page{
+    width: 100%;
+    height: auto;
+}
+.header{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+.header .header-in .header-left .log-picture{
     display: inline-block;
     width: 250px;
     height: 100px;
@@ -13,47 +32,48 @@ body, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, hr, img, div, label, span
     background-size: auto 60px;
     margin-top: 0px;
 }
-.pull-left{
+.page .header .header-in .header-left {
     float: left !important
 }
-.pull-right {
-    float: right!important;
+.page .header .header-in .header-middle {
+    width: 450px;
+    height: 34px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
 }
-.logpart {
-    float: right;
-    display: block;
-    color: #666;
-    line-height: 64px;
-    height: 64px;
-    margin-top: 8px;
-    margin-right: 10px;
+.page .header .header-in .header-middle input{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    resize: none
 }
-.logpart a.first {
-    color: #666;
+.page .header .header-in .header-right {
+    float: right !important;
+    width: 116;
+    height: 60;
+    margin-top: 35px;
+}
+.page .header .header-in .header-right li{
+    float: left;
+}
+.page .header .header-in .header-right li a {
+    color: #383838;
+    line-height: 35px;
     margin-left: 10px;
-    margin-top: 2px;
     text-decoration: none;
-}
-
-.logpart a.first:hover {
-    color: #29ABE2;
-    text-decoration: underline;
-}
-.logpart a.about {
-    color: #666;
-    font-weight: normal;
-    line-height: 32px;
+    text-align: center;
+    display: inline;
     font-size: 16px;
-    text-decoration: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
 }
-
-.logpart a.about:hover {
+.page .header .header-in .header-right a:hover {
     color: #29ABE2;
     text-decoration: underline;
-}
-
-.logpart #login-join{
-    display: block;
-    float: right;
-    margin-top: 8px;
 }
