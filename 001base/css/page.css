@@ -36,11 +36,11 @@ html, body{
     float: left !important
 }
 .page .header .header-in .header-middle {
-    width: 450px;
+    width: 500px;
     height: 34px;
     float: left;
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 80px;
 }
 .page .header .header-in .header-middle input{
     width: 100%;
@@ -57,7 +57,7 @@ html, body{
     float: right !important;
     width: 116;
     height: 60;
-    margin-top: 35px;
+    margin-top: 25px;
 }
 .page .header .header-in .header-right li{
     float: left;
@@ -78,18 +78,61 @@ html, body{
     text-decoration: underline;
 }
 
-.page .main-body{
+.page .main-body .body-header{
     width: 100%;
     height: 45px;
     background-color: #f5f5f5;
     float: left;
     text-align: center;
+    position: relative;
+}
+.page .main-body .body-header .on{
+    position: relative;
+    color: #29ABE2;
+    font-weight: bold;
+    border-bottom: 1px solid #29ABE2;
 }
 .page .main-body .body-header a{
     float: left;
-    display: inline;
     margin-left: 25px;
     margin-top: 10px;
     text-decoration: none;
     color: #383838;
+}
+.page .main-body .body-header a:hover{
+    color: #29ABE2;
+}
+
+.page .main-body .body-content {
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #e8e8e8;
+}
+
+.page .main-body .body-content #modulelist_content{
+    width: 100%;
+    height: auto;
+    background-color:  red;
+}
+
+.page .main-body .body-content #upmodule_content{
+    width: 100%;
+    height: auto;
+    background-color: green;
+    display: none;
+}
+
+.page .main-body .body-content #expansionmodule_content{
+    width: 100%;
+    height: auto;
+    background-color: yellow;
+    display: none;
+}
+
+.page .main-body .body-content #uploadmodule_content{
+    width: 100%;
+    height: auto;
+    background-color: purple;
+    display: none;
 }
