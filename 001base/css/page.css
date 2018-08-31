@@ -86,12 +86,6 @@ html, body{
     text-align: center;
     position: relative;
 }
-.page .main-body .body-header .on{
-    position: relative;
-    color: #29ABE2;
-    font-weight: bold;
-    border-bottom: 1px solid #29ABE2;
-}
 .page .main-body .body-header a{
     float: left;
     margin-left: 25px;
@@ -99,37 +93,37 @@ html, body{
     text-decoration: none;
     color: #383838;
 }
+.page .main-body .body-header .current{
+    color: #29ABE2;
+    font-weight: bold;
+    border-bottom: 1px solid #29ABE2;
+}
 .page .main-body .body-header a:hover{
     color: #29ABE2;
 }
-
 .page .main-body .body-content {
     width: 100%;
     height: auto;
     float: left;
     background-color: #e8e8e8;
 }
-
 .page .main-body .body-content #modulelist_content{
     width: 100%;
     height: auto;
     background-color:  red;
 }
-
 .page .main-body .body-content #upmodule_content{
     width: 100%;
     height: auto;
     background-color: green;
     display: none;
 }
-
 .page .main-body .body-content #expansionmodule_content{
     width: 100%;
     height: auto;
     background-color: yellow;
     display: none;
 }
-
 .page .main-body .body-content #uploadmodule_content{
     width: 100%;
     height: auto;
