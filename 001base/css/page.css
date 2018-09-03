@@ -106,11 +106,43 @@ html, body{
     height: auto;
     float: left;
     background-color: #e8e8e8;
+    margin: 0 auto;
 }
-.page .main-body .body-content #modulelist_content{
+.page .main-body .body-content .body-detailed-content{
     width: 100%;
     height: auto;
-    background-color:  red;
+}
+
+.page .main-body .body-content .body-detailed-content table{
+    width: 100%;
+    border: 1px solid #999;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+}
+.page .main-body .body-content .body-detailed-content th{
+    background-color: #e3f3fc;
+    font-weight: normal;
+    border-bottom: 1px solid #999;
+    height: 38px;
+    text-align: center;
+    line-height: 45px;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+.page .main-body .body-content .body-detailed-content tr:hover{
+    background-color: #c8c8c8;
+}
+.page .main-body .body-content .body-detailed-content tbody td{
+    font-weight: normal;
+    border-bottom: 1px solid #999;
+    height: 38px;
+    text-align: center;
+    line-height: 45px;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
 }
 .page .main-body .body-content #upmodule_content{
     width: 100%;
