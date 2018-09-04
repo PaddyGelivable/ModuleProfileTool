@@ -1,0 +1,34 @@
+[
+    {
+        "vendorname": "Spectrum Control",
+        "moduleid": "N/A",
+        "productcode": "114",
+        "catalogname": "2085-IF4XOF4-SC",
+        "modulerevision": "1.1 (A)",
+        "profilerevision": "1"
+    },
+    {
+        "vendorname": "Spectrum Control",
+        "moduleid": "N/A",
+        "productcode": "115",
+        "catalogname": "2085-OB32-SC",
+        "modulerevision": "1.1 (A)",
+        "profilerevision": "1"
+    },
+    {
+        "vendorname": "Spectrum Control",
+        "moduleid": "N/A",
+        "productcode": "116",
+        "catalogname": "2085-OV32-SC",
+        "modulerevision": "1.1 (A)",
+        "profilerevision": "1"
+    },
+    {
+        "vendorname": "Spectrum Control",
+        "moduleid": "N/A",
+        "productcode": "112",
+        "catalogname": "2085sc-IF16C",
+        "modulerevision": "1.1 (A)",
+        "profilerevision": "2"
+    }
+]

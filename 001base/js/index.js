@@ -1,12 +1,12 @@
 //self executed function
-(function(){
+$(document).ready(function(){
     tab();
-})();
+});
 
 function tab(){
-    var headerList = $('body_header').getElementsByTagName('a');
-    var contentList = $('body_content').getElementsByClassName('body-detailed-content');
-    var tableRows = $('main_table_body').getElementsByTagName('tr');
+    var headerList = getElementFromId('body_header').getElementsByTagName('a');
+    var contentList = getElementFromId('body_content').getElementsByClassName('body-detailed-content');
+    var tableRows = getElementFromId('main_table_body').getElementsByTagName('tr');
 
     var lastone = 0;
     var lastrow = 0;
@@ -36,6 +36,23 @@ function tab(){
     }
 };
 
-function $(id){
+function getElementFromId(id){
     return typeof id === "string" ? document.getElementById(id) : null;
-}
+};
+
+$(document).ready(function(){
+    $.getJSON("modulelist.json", function(data){
+        var modulelist = '';
+        $.each(data, function(key, value){
+            modulelist += '<tr>';
+            modulelist += '<td>'+value.vendorname+'</td>';
+            modulelist += '<td>'+value.moduleid+'</td>';
+            modulelist += '<td>'+value.productcode+'</td>';
+            modulelist += '<td>'+value.catalogname+'</td>';
+            modulelist += '<td>'+value.modulerevision+'</td>';
+            modulelist += '<td>'+value.profilerevision+'</td>';
+            modulelist += '</tr>';
+        });
+        $('#main_table_body').append(modulelist);
+    });
+});
