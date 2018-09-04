@@ -1,4 +1,3 @@
-//self executed function
 $(document).ready(function(){
     tab();
 });
@@ -6,10 +5,8 @@ $(document).ready(function(){
 function tab(){
     var headerList = getElementFromId('body_header').getElementsByTagName('a');
     var contentList = getElementFromId('body_content').getElementsByClassName('body-detailed-content');
-    var tableRows = getElementFromId('main_table_body').getElementsByTagName('tr');
 
     var lastone = 0;
-    var lastrow = 0;
     
     for(var i = 0; i < headerList.length; i++){
         var li = headerList[i];
@@ -23,7 +20,15 @@ function tab(){
             } 
         })(i);
     }
+};
 
+function getElementFromId(id){
+    return typeof id === "string" ? document.getElementById(id) : null;
+};
+
+function setSelectedRow(){
+    var tableRows = getElementFromId('main_table_body').getElementsByTagName('tr');
+    var lastrow = 0;
     for(var i=0; i < tableRows.length; i++){
         var currentRow = tableRows[i];
         (function (i){
@@ -36,9 +41,6 @@ function tab(){
     }
 };
 
-function getElementFromId(id){
-    return typeof id === "string" ? document.getElementById(id) : null;
-};
 
 $(document).ready(function(){
     $.getJSON("modulelist.json", function(data){
@@ -54,5 +56,6 @@ $(document).ready(function(){
             modulelist += '</tr>';
         });
         $('#main_table_body').append(modulelist);
+        setSelectedRow();
     });
 });
