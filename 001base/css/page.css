@@ -131,6 +131,9 @@ html, body{
     margin: 0;
     font-size: 14px;
 }
+.page .main-body .body-content .body-detailed-content tbody .current{
+    background-color: #c8c8c8;
+}
 .page .main-body .body-content .body-detailed-content tr:hover{
     background-color: #c8c8c8;
 }
