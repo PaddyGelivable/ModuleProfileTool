@@ -53,6 +53,7 @@ $(document).ready(function(){
             modulelist += '<td>'+value.catalogname+'</td>';
             modulelist += '<td>'+value.modulerevision+'</td>';
             modulelist += '<td>'+value.profilerevision+'</td>';
+            modulelist += '<td>'+'<span><a href="">View</a> <a href="">Download</a></span>'+'</td>';
             modulelist += '</tr>';
         });
         $('#main_table_body').append(modulelist);
