@@ -1,5 +1,6 @@
 $(document).ready(function(){
     tab();
+    initializaData();
 });
 
 function tab(){
@@ -41,8 +42,7 @@ function setSelectedRow(){
     }
 };
 
-
-$(document).ready(function(){
+function initializaData(){
     $.getJSON("modulelist.json", function(data){
         var modulelist = '';
         $.each(data, function(key, value){
@@ -53,10 +53,25 @@ $(document).ready(function(){
             modulelist += '<td>'+value.catalogname+'</td>';
             modulelist += '<td>'+value.modulerevision+'</td>';
             modulelist += '<td>'+value.profilerevision+'</td>';
-            modulelist += '<td>'+'<span><a href="">View</a> <a href="">Download</a></span>'+'</td>';
+            modulelist += '<td>'+'<span><a class="view-module" title="View module" href="#">View</a> <a class="download-module" href="#" title="Download module">Download</a> <a class="edit-module" href="#" title="Edit module">Edit</a></span>'+'</td>';
             modulelist += '</tr>';
         });
         $('#main_table_body').append(modulelist);
         setSelectedRow();
+        view();
     });
-});
+
+    function view(){
+        var maintablebody = getElementFromId('main_table_body');
+        var tableContent = maintablebody.getElementsByClassName('view-module');
+        console.log(tableContent.length);
+        for(var i = 0; i < tableContent.length; i++){
+            var viewbutton = tableContent[i];
+            (function(i){
+                viewbutton.onclick = function(){
+                    alert('test');
+                }
+            })();
+        }
+    };
+}

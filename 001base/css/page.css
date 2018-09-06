@@ -162,3 +162,15 @@ html, body{
     background-color: purple;
     display: none;
 }
+.page .main-body .body-content .body-detailed-content #main_table_body a{
+    color: #383838;
+    margin-left: 2px;
+    text-decoration: none;
+    text-align: center;
+    display: inline;
+}
+
+.page .main-body .body-content .body-detailed-content #main_table_body a:hover{
+    color: #29ABE2;
+    text-decoration: underline;
+}
