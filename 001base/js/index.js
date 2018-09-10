@@ -27,7 +27,7 @@ function getElementFromId(id){
     return typeof id === "string" ? document.getElementById(id) : null;
 };
 
-function setSelectedRow(){
+function setRowStyle(){
     var tableRows = getElementFromId('main_table_body').getElementsByTagName('tr');
     var lastrow = 0;
     for(var i=0; i < tableRows.length; i++){
@@ -57,21 +57,51 @@ function initializaData(){
             modulelist += '</tr>';
         });
         $('#main_table_body').append(modulelist);
-        setSelectedRow();
-        view();
+        setRowStyle();
+        setViewAction();
+        setDownloadAction();
+        setEditAction();
     });
 
-    function view(){
+    function setViewAction(){
         var maintablebody = getElementFromId('main_table_body');
         var tableContent = maintablebody.getElementsByClassName('view-module');
-        console.log(tableContent.length);
         for(var i = 0; i < tableContent.length; i++){
             var viewbutton = tableContent[i];
             (function(i){
+                var currentIndex = i;
                 viewbutton.onclick = function(){
-                    alert('test');
+                    alert('view ' + currentIndex);    
                 }
-            })();
+            })(i);
+        }
+    };
+    
+    function setDownloadAction(){
+        var maintablebody = getElementFromId('main_table_body');
+        var tableContent = maintablebody.getElementsByClassName('download-module');
+        for(var i = 0; i < tableContent.length; i++){
+            var downloadbutton = tableContent[i];
+            (function(i){
+                var currentIndex = i;
+                downloadbutton.onclick = function(){
+                    alert('Dowload ' + currentIndex);    
+                }
+            })(i);
+        }
+    };
+
+    function setEditAction(){
+        var maintablebody = getElementFromId('main_table_body');
+        var tableContent = maintablebody.getElementsByClassName('edit-module');
+        for(var i = 0; i < tableContent.length; i++){
+            var editbutton = tableContent[i];
+            (function(i){
+                var currentIndex = i;
+                editbutton.onclick = function(){
+                    alert('Edit '+ currentIndex);    
+                }
+            })(i);
         }
     };
 }
