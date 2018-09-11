@@ -86,9 +86,18 @@ function initializaData(){
         }
     };
 
-    function viewModuleInfo(i){
+    function viewModuleInfo(index){
         var viewDetailed = getElementFromId('view_detailed');
         viewDetailed.style.display = 'block';
+
+        $.getJSON("modulelist.json", function(data){
+            $.each(data, function(key, value){
+                if(key === index){
+                    var profileRevisionElement = getElementFromId('profile_Revision_Value');
+                    profileRevisionElement.value = value.profilerevision;
+                }
+            });
+        });
     };
 
     function setDownloadAction(){

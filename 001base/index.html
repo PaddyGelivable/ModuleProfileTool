@@ -10,104 +10,106 @@
     <script src="./js/index.js"></script> 
 </head>
 <body>
-    <div id"page" class="page">
-        <!-- Header -->
-        <div class="header" id="header">
-            <div class="header-in" id="header_in">
-                <div class="header-left" id="header_left">
-                    <a class="log-picture" id="log_picture" href="/001base/index.html"></a>
+    <form id="mainForm" runat="server">
+        <div id"page" class="page">
+            <!-- Header -->
+            <div class="header" id="header">
+                <div class="header-in" id="header_in">
+                    <div class="header-left" id="header_left">
+                        <a class="log-picture" id="log_picture" href="/001base/index.html"></a>
+                    </div>
+                    <div class="header-middle" id="header_middle">
+                        <input type="text" id="query" name="query" placeholder="Search what you want" value="">
+                        </input>
+                    </div>
+                    <div class="header-right" id="header_right">
+                        <ul>
+                            <li><a class="sign-in" href="#">Sign in</a></li>
+                            <li><a class="sign-up" href="javascript::">Sign up</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="header-middle" id="header_middle">
-                    <input type="text" id="query" name="query" placeholder="Search what you want" value="">
-                    </input>
-                </div>
-                <div class="header-right" id="header_right">
+            </div>
+            <!-- Main body -->
+            <div class="main-body" id="main_body">
+                <div class="body-header" id="body_header">
                     <ul>
-                        <li><a class="sign-in" href="#">Sign in</a></li>
-                        <li><a class="sign-up" href="javascript::">Sign up</a></li>
+                        <li><a title="Current Module List"  class=
+                                    "current">Module List</a></li>
+                        <li><a title="Create Universal Port Module">Create UP Module</a></li>
+                        <li><a title="Create Expansion Module">Create EP Module</a></li>
+                        <li><a title="Upload Module Profile">Upload Module</a></li>
                     </ul>
                 </div>
+                <div class="body-content" id="body_content">
+                    <div class="body-detailed-content">
+                        <table id="main_table">
+                            <thead>
+                                <tr id="main_table_header">
+                                    <th class="vendor-name">
+                                        <span>Vendor Name</span>
+                                    </th>
+                                    <th class="module-ID">
+                                        <span>Module ID</span>
+                                    </th>
+                                    <th class="product-code">
+                                        <span>Product Code</span>
+                                    </th>
+                                    <th class="catalog-name">
+                                        <span>Catalog Name</span>
+                                    </th>
+                                    <th class="module-revision">
+                                        <span>Module Revision</span>
+                                    </th>
+                                    <th class="profile-revision">
+                                        <span>Profile Revision</span>
+                                    </th>
+                                    <th class="module-operation">
+                                        <span>Operation</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="main_table_body">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="body-detailed-content" id="upmodule_content">第二个</div>
+                    <div class="body-detailed-content" id="expansionmodule_content">第三个</div>
+                    <div class="body-detailed-content" id="uploadmodule_content">第四个</div>
+                </div> 
             </div>
-        </div>
-        <!-- Main body -->
-        <div class="main-body" id="main_body">
-            <div class="body-header" id="body_header">
-                <ul>
-                    <li><a title="Current Module List"  class=
-                        "current">Module List</a></li>
-                    <li><a title="Create Universal Port Module">Create UP Module</a></li>
-                    <li><a title="Create Expansion Module">Create EP Module</a></li>
-                    <li><a title="Upload Module Profile">Upload Module</a></li>
-                </ul>
-            </div>
-            <div class="body-content" id="body_content">
-                <div class="body-detailed-content">
-                    <table id="main_table">
-                        <thead>
-                            <tr id="main_table_header">
-                                <th class="vendor-name">
-                                    <span>Vendor Name</span>
-                                </th>
-                                <th class="module-ID">
-                                    <span>Module ID</span>
-                                </th>
-                                <th class="product-code">
-                                    <span>Product Code</span>
-                                </th>
-                                <th class="catalog-name">
-                                    <span>Catalog Name</span>
-                                </th>
-                                <th class="module-revision">
-                                    <span>Module Revision</span>
-                                </th>
-                                <th class="profile-revision">
-                                    <span>Profile Revision</span>
-                                </th>
-                                <th class="module-operation">
-                                    <span>Operation</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="main_table_body">
-                        </tbody>
-                    </table>
+            <!-- View Detailed -->
+            <div id="view_detailed" class="view-detailed">
+                <div class="view-detailed-body" id="view_detailed_body">
+                    <div class="view-detailed-body-header" id="view_detailed_body_header">
+                        <label class="view-module" id="view_module">View Module Profile</label>
+                        <a href="#" class="close-button" id="close_button"></a>
+                    </div>
+                    <div class="view-detailed-body-content" id="view_detailed_body_content">
+                        <div class="block">
+                            <label for="profileRevisionValue">Profile Revision:</label>
+                            <input type="text" readonly name="profileRevisionValue" id="profile_Revision_Value"></input>
+                        </div>
+                        <div class="block">
+                            <label for="vendorIDValue">Vendor ID:</label>
+                            <input type="text" readonly name="vendorIDValue"></input>
+                        </div>
+                        <div class="block">
+                            <label for="vendorNameValue">Vendor Name:</label>
+                            <input type="text" readonly name="vendorNameValue"></input>
+                        </div>
+                        <div class="block">
+                            <label for="catalogNameValue">Catalog Name:</label>
+                            <input type="text" readonly name="catalogNameValue"></input>
+                        </div>
+                        <div class="block">
+                            <label for="productCodeValue">Product Code:</label>
+                            <input type="text" readonly name="productCodeValue"></input>
+                        </div>
+                    </div>      
                 </div>
-                <div class="body-detailed-content" id="upmodule_content">第二个</div>
-                <div class="body-detailed-content" id="expansionmodule_content">第三个</div>
-                <div class="body-detailed-content" id="uploadmodule_content">第四个</div>
-            </div> 
-        </div>
-        <!-- View Detailed -->
-        <div id="view_detailed" class="view-detailed">
-            <div class="view-detailed-body" id="view_detailed_body">
-                <div class="view-detailed-body-header" id="view_detailed_body_header">
-                    <label class="view-module" id="view_module">View Module Profile</label>
-                    <a href="#" class="close-button" id="close_button"></a>
-                </div>
-                <div class="view-detailed-body-content" id="view_detailed_body_content">
-                    <div class="block">
-                        <label for="profileRevisionValue">Profile Revision:</label>
-                        <input type="text" readonly name="profileRevisionValue"></input>
-                    </div>
-                    <div class="block">
-                        <label for="vendorIDValue">Vendor ID:</label>
-                        <input type="text" readonly name="vendorIDValue"></input>
-                    </div>
-                    <div class="block">
-                        <label for="vendorNameValue">Vendor Name:</label>
-                        <input type="text" readonly name="vendorNameValue"></input>
-                    </div>
-                    <div class="block">
-                        <label for="catalogNameValue">Catalog Name:</label>
-                        <input type="text" readonly name="catalogNameValue"></input>
-                    </div>
-                    <div class="block">
-                        <label for="productCodeValue">Product Code:</label>
-                        <input type="text" readonly name="productCodeValue"></input>
-                    </div>
-                </div>      
             </div>
         </div>
-    </div>
+    </form>
 </body>
 </html>
