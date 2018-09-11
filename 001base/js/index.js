@@ -61,7 +61,16 @@ function initializaData(){
         setViewAction();
         setDownloadAction();
         setEditAction();
+        setCloseAction();
     });
+
+    function setCloseAction(){
+        var closeBtn = getElementFromId('close_button');
+        closeBtn.onclick = function(){
+            var viewDetailed = getElementFromId('view_detailed');
+            viewDetailed.style.display = 'none';
+        }
+    };
 
     function setViewAction(){
         var maintablebody = getElementFromId('main_table_body');
@@ -70,13 +79,18 @@ function initializaData(){
             var viewbutton = tableContent[i];
             (function(i){
                 var currentIndex = i;
-                viewbutton.onclick = function(){
-                    alert('view ' + currentIndex);    
-                }
+                 viewbutton.onclick = function(){
+                    viewModuleInfo(currentIndex);
+                } 
             })(i);
         }
     };
-    
+
+    function viewModuleInfo(i){
+        var viewDetailed = getElementFromId('view_detailed');
+        viewDetailed.style.display = 'block';
+    };
+
     function setDownloadAction(){
         var maintablebody = getElementFromId('main_table_body');
         var tableContent = maintablebody.getElementsByClassName('download-module');
