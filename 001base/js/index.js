@@ -80,7 +80,6 @@ function initializaData(){
             (function(i){
                 var currentIndex = i;
                  viewbutton.onclick = function(){
-                     console.log(currentIndex);
                     viewModuleInfo(currentIndex);
                 } 
             })(i);
@@ -90,15 +89,12 @@ function initializaData(){
     function viewModuleInfo(index){
         var viewDetailed = getElementFromId('view_detailed');
         viewDetailed.style.display = 'block';
-        console.log(index);
 
         $.getJSON("modulelist.json", function(data){
             $.each(data, function(key, value){
                 if(key === index){
                     var profileRevisionElement = getElementFromId('profile_Revision_Value');
                     profileRevisionElement.value = value.profilerevision;
-                    console.log(profileRevisionElement.value);
-                    console.log(value);
                 }
             });
         });
