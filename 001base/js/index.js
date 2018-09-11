@@ -89,6 +89,7 @@ function initializaData(){
     function viewModuleInfo(index){
         var viewDetailed = getElementFromId('view_detailed');
         viewDetailed.style.display = 'block';
+        console.log(index);
 
         $.getJSON("modulelist.json", function(data){
             $.each(data, function(key, value){
