@@ -94,7 +94,15 @@ function initializaData(){
             $.each(data, function(key, value){
                 if(key === index){
                     var profileRevisionElement = getElementFromId('profile_Revision_Value');
+                    var vendorIDElement = getElementFromId('vendor_ID_Value');
+                    var vendorNameElement = getElementFromId('vendor_Name_Value');
+                    var catalogNameElement = getElementFromId('catalog_Name_Value');
+                    var productCodeElement = getElementFromId('product_Code_Value');
                     profileRevisionElement.value = value.profilerevision;
+                    vendorIDElement.value = value.vendorid;
+                    vendorNameElement.value = value.vendorname;
+                    catalogNameElement.value = value.catalogname;
+                    productCodeElement.value = value.productcode;
                 }
             });
         });
