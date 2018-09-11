@@ -80,6 +80,7 @@ function initializaData(){
             (function(i){
                 var currentIndex = i;
                  viewbutton.onclick = function(){
+                     console.log(currentIndex);
                     viewModuleInfo(currentIndex);
                 } 
             })(i);
