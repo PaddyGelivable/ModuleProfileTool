@@ -95,6 +95,8 @@ function initializaData(){
                 if(key === index){
                     var profileRevisionElement = getElementFromId('profile_Revision_Value');
                     profileRevisionElement.value = value.profilerevision;
+                    console.log(profileRevisionElement.value);
+                    console.log(value);
                 }
             });
         });
