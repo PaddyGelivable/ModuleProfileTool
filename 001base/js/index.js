@@ -24,7 +24,7 @@ function tab(){
 };
 
 function setRowStyle(){
-    var tableRows = $('#main_table_body')[0].getElementsByTagName('tr');
+    var tableRows = $('#main_table_body tr');
     var lastrow = 0;
     for(var i=0; i < tableRows.length; i++){
         var currentRow = tableRows[i];
