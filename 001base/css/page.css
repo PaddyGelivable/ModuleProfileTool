@@ -235,7 +235,8 @@ html, body{
 
 .page .view-detailed .view-detailed-body .view-detailed-body-content .block input{
     vertical-align: top;
-    width: 230px;
+    width: 250px;
+    font-size: 12px;
 }
 
 .page .view-detailed .view-detailed-body .view-module{

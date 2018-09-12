@@ -4,8 +4,8 @@ $(document).ready(function(){
 });
 
 function tab(){
-    var headerList = getElementFromId('body_header').getElementsByTagName('a');
-    var contentList = getElementFromId('body_content').getElementsByClassName('body-detailed-content');
+    var headerList = $('#body_header a')[0];
+    var contentList = $('#body_content .body-detailed-content')[0];
 
     var lastone = 0;
     
@@ -23,12 +23,8 @@ function tab(){
     }
 };
 
-function getElementFromId(id){
-    return typeof id === "string" ? document.getElementById(id) : null;
-};
-
 function setRowStyle(){
-    var tableRows = getElementFromId('main_table_body').getElementsByTagName('tr');
+    var tableRows = $('#main_table_body')[0].getElementsByTagName('tr');
     var lastrow = 0;
     for(var i=0; i < tableRows.length; i++){
         var currentRow = tableRows[i];
@@ -65,16 +61,15 @@ function initializaData(){
     });
 
     function setCloseAction(){
-        var closeBtn = getElementFromId('close_button');
+        var closeBtn = $('#close_button')[0];
         closeBtn.onclick = function(){
-            var viewDetailed = getElementFromId('view_detailed');
+            var viewDetailed = $('#view_detailed')[0];
             viewDetailed.style.display = 'none';
         }
     };
 
     function setViewAction(){
-        var maintablebody = getElementFromId('main_table_body');
-        var tableContent = maintablebody.getElementsByClassName('view-module');
+        var tableContent = $('#main_table_body  .view-module');
         for(var i = 0; i < tableContent.length; i++){
             var viewbutton = tableContent[i];
             (function(i){
@@ -87,25 +82,25 @@ function initializaData(){
     };
 
     function viewModuleInfo(index){
-        var viewDetailed = getElementFromId('view_detailed');
+        var viewDetailed = $('#view_detailed')[0];
         viewDetailed.style.display = 'block';
 
         $.getJSON("modulelist.json", function(data){
             $.each(data, function(key, value){
                 if(key === index){
-                    var profileRevisionElement = getElementFromId('profile_Revision_Value');
-                    var vendorIDElement = getElementFromId('vendor_ID_Value');
-                    var vendorNameElement = getElementFromId('vendor_Name_Value');
-                    var catalogNameElement = getElementFromId('catalog_Name_Value');
-                    var moduledescriptionElement = getElementFromId('module_Description_Value');
-                    var productCodeElement = getElementFromId('product_Code_Value');
-                    var productTypeElement = getElementFromId('product_Type_Value');
-                    var maxBaudRateElement = getElementFromId('max_BaudRate_Value');
-                    var moduleRevisionElement = getElementFromId('module_Rev_Value');
-                    var moduleSeriesElement = getElementFromId('module_Series_Value');
-                    var minFWVersionElement = getElementFromId('min_FWVersion_Value');
-                    var inputWordsElement = getElementFromId('input_Words_Value');
-                    var outputWordsElement = getElementFromId('output_Words_Value');
+                    var profileRevisionElement = $('#profile_Revision_Value')[0];
+                    var vendorIDElement = $('#vendor_ID_Value')[0];
+                    var vendorNameElement = $('#vendor_Name_Value')[0];
+                    var catalogNameElement = $('#catalog_Name_Value')[0];
+                    var moduledescriptionElement = $('#module_Description_Value')[0];
+                    var productCodeElement = $('#product_Code_Value')[0];
+                    var productTypeElement = $('#product_Type_Value')[0];
+                    var maxBaudRateElement = $('#max_BaudRate_Value')[0];
+                    var moduleRevisionElement = $('#module_Rev_Value')[0];
+                    var moduleSeriesElement = $('#module_Series_Value')[0];
+                    var minFWVersionElement = $('#min_FWVersion_Value')[0];
+                    var inputWordsElement = $('#input_Words_Value')[0];
+                    var outputWordsElement = $('#output_Words_Value')[0];
                     profileRevisionElement.value = value.profilerevision;
                     vendorIDElement.value = value.vendorid;
                     vendorNameElement.value = value.vendorname;
@@ -148,8 +143,7 @@ function initializaData(){
     };
 
     function setDownloadAction(){
-        var maintablebody = getElementFromId('main_table_body');
-        var tableContent = maintablebody.getElementsByClassName('download-module');
+        var tableContent = $('#main_table_body .download-module');
         for(var i = 0; i < tableContent.length; i++){
             var downloadbutton = tableContent[i];
             (function(i){
@@ -162,8 +156,7 @@ function initializaData(){
     };
 
     function setEditAction(){
-        var maintablebody = getElementFromId('main_table_body');
-        var tableContent = maintablebody.getElementsByClassName('edit-module');
+        var tableContent = $('#main_table_body .edit-module');
         for(var i = 0; i < tableContent.length; i++){
             var editbutton = tableContent[i];
             (function(i){
