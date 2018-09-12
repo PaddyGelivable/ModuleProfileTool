@@ -97,15 +97,54 @@ function initializaData(){
                     var vendorIDElement = getElementFromId('vendor_ID_Value');
                     var vendorNameElement = getElementFromId('vendor_Name_Value');
                     var catalogNameElement = getElementFromId('catalog_Name_Value');
+                    var moduledescriptionElement = getElementFromId('module_Description_Value');
                     var productCodeElement = getElementFromId('product_Code_Value');
+                    var productTypeElement = getElementFromId('product_Type_Value');
+                    var maxBaudRateElement = getElementFromId('max_BaudRate_Value');
+                    var moduleRevisionElement = getElementFromId('module_Rev_Value');
+                    var moduleSeriesElement = getElementFromId('module_Series_Value');
+                    var minFWVersionElement = getElementFromId('min_FWVersion_Value');
+                    var inputWordsElement = getElementFromId('input_Words_Value');
+                    var outputWordsElement = getElementFromId('output_Words_Value');
                     profileRevisionElement.value = value.profilerevision;
                     vendorIDElement.value = value.vendorid;
                     vendorNameElement.value = value.vendorname;
                     catalogNameElement.value = value.catalogname;
+                    moduledescriptionElement.value = value.description;
                     productCodeElement.value = value.productcode;
+                    productTypeElement.value = getProductType(value.producttype);
+                    maxBaudRateElement.value = value.maximumbaudrate + ' Mbps';
+                    moduleRevisionElement.value = value.modulerevision;
+                    moduleSeriesElement.value = value.moduleseries;
+                    minFWVersionElement.value = value.minFWVersion;
+                    inputWordsElement.value = value.inputword;
+                    outputWordsElement.value = value.outpurword;
+                    $('#input_Words_Label')[0].innerText = changeInputText(value.producttype);   
+                    $('#output_Words_Label')[0].innerText = changeOutputText(value.producttype);
                 }
             });
         });
+    };
+
+    function changeInputText(productCodeValue){
+        if(productCodeValue === 7)
+            return 'Input Bits:';
+        else if(productCodeValue === 10)
+            return 'Input Words:'; 
+    };
+
+    function changeOutputText(productCodeValue){
+        if(productCodeValue === 7)
+            return 'Output Bits:';
+        else if(productCodeValue === 10)
+            return 'Outputs Words:'; 
+    };
+
+    function getProductType(productCodeValue){
+        if(productCodeValue === 7)
+            return 'Digital';
+        else if(productCodeValue === 10)
+            return 'Analog'; 
     };
 
     function setDownloadAction(){
