@@ -4,8 +4,8 @@ $(document).ready(function(){
 });
 
 function tab(){
-    var headerList = $('#body_header a')[0];
-    var contentList = $('#body_content .body-detailed-content')[0];
+    var headerList = $('#body_header a');
+    var contentList = $('#body_content .body-detailed-content');
 
     var lastone = 0;
     
@@ -49,7 +49,7 @@ function initializaData(){
             modulelist += '<td>'+value.catalogname+'</td>';
             modulelist += '<td>'+value.modulerevision+'</td>';
             modulelist += '<td>'+value.profilerevision+'</td>';
-            modulelist += '<td>'+'<span><a class="view-module" title="View module" href="#">View</a> <a class="download-module" href="#" title="Download module">Download</a> <a class="edit-module" href="#" title="Edit module">Edit</a></span>'+'</td>';
+            modulelist += '<td>'+'<span><a class="view-module" title="View module" href="#">View</a> <a class="download-module" title="Download module" href="#">Download</a> <a class="edit-module" href="#" title="Edit module">Edit</a></span>'+'</td>';
             modulelist += '</tr>';
         });
         $('#main_table_body').append(modulelist);
@@ -149,7 +149,7 @@ function initializaData(){
             (function(i){
                 var currentIndex = i;
                 downloadbutton.onclick = function(){
-                    alert('Dowload ' + currentIndex);    
+                        
                 }
             })(i);
         }
