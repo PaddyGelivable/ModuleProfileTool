@@ -7,7 +7,11 @@ function tab(){
     var headerList = $('#body_header a');
     var contentList = $('#body_content .body-detailed-content');
 
+    var editModuleHeaderList = $('#edit_module_body_header a');
+    var editModuleContentList = $('#edit_module_body_content .edit-module-body-detailed-content');
+
     var lastone = 0;
+    var lastEditModuleOne = 0;
     
     for(var i = 0; i < headerList.length; i++){
         var li = headerList[i];
@@ -18,6 +22,20 @@ function tab(){
             this.className = "current";
             contentList[i].style.display="block";
             lastone = i;
+            } 
+        })(i);
+    }
+
+    for(var i = 0; i < editModuleHeaderList.length; i++){
+        var li = editModuleHeaderList[i];
+        (function (i){
+           li.onclick = function(){
+            console.log(editModuleContentList[lastEditModuleOne]);
+            editModuleHeaderList[lastEditModuleOne].className = "";
+            editModuleContentList[lastEditModuleOne].style.display="none";
+            this.className = "current";
+            editModuleContentList[i].style.display="block";
+            lastEditModuleOne = i;
             } 
         })(i);
     }
@@ -65,6 +83,12 @@ function initializaData(){
         closeBtn.onclick = function(){
             var viewDetailed = $('#view_detailed')[0];
             viewDetailed.style.display = 'none';
+        }
+
+        var closeEditViewBtn = $('#close_button_edit_module_button')[0];
+        closeEditViewBtn.onclick = function(){
+            var editDetailed = $('#edit_module_div')[0];
+            editDetailed.style.display = 'none';
         }
     };
 
@@ -160,9 +184,14 @@ function initializaData(){
             (function(i){
                 var currentIndex = i;
                 editbutton.onclick = function(){
-                    alert('Edit '+ currentIndex);    
+                    editModuleProfile(currentIndex);    
                 }
             })(i);
         }
     };
+
+    function editModuleProfile(index){
+        var viewDetailed = $('#edit_module_div')[0];
+        viewDetailed.style.display = 'block';
+    }
 }
