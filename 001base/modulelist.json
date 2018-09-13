@@ -15,7 +15,7 @@
         "outpurword": 5,
         "description": "4 Channel Analog Input and 4 Channel Analog Output",
         "maximumlength": 16,
-        "filepath": ""
+        "filepath": "./modulefiles/Spectrum Controls 2085sc-IF8U_v1_1.zip"
     },
     {
         "vendorname": "Spectrum Control",

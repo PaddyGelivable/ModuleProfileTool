@@ -49,13 +49,13 @@ function initializaData(){
             modulelist += '<td>'+value.catalogname+'</td>';
             modulelist += '<td>'+value.modulerevision+'</td>';
             modulelist += '<td>'+value.profilerevision+'</td>';
-            modulelist += '<td>'+'<span><a class="view-module" title="View module" href="#">View</a> <a class="download-module" title="Download module" href="#">Download</a> <a class="edit-module" href="#" title="Edit module">Edit</a></span>'+'</td>';
+            modulelist += '<td>'+'<span><a class="view-module" title="View module" href="#">View</a> <a class="download-module" title="Download module" download>Download</a> <a class="edit-module" href="#" title="Edit module">Edit</a></span>'+'</td>';
             modulelist += '</tr>';
         });
         $('#main_table_body').append(modulelist);
         setRowStyle();
         setViewAction();
-        setDownloadAction();
+        setDownloadFilePath();
         setEditAction();
         setCloseAction();
     });
@@ -117,7 +117,7 @@ function initializaData(){
                     $('#input_Words_Label')[0].innerText = changeInputText(value.producttype);   
                     $('#output_Words_Label')[0].innerText = changeOutputText(value.producttype);
                 }
-            });
+            })
         });
     };
 
@@ -142,18 +142,16 @@ function initializaData(){
             return 'Analog'; 
     };
 
-    function setDownloadAction(){
+    function setDownloadFilePath(){
         var tableContent = $('#main_table_body .download-module');
-        for(var i = 0; i < tableContent.length; i++){
-            var downloadbutton = tableContent[i];
-            (function(i){
-                var currentIndex = i;
-                downloadbutton.onclick = function(){
-                        
-                }
-            })(i);
-        }
-    };
+
+        $.getJSON("modulelist.json", function(data){
+            $.each(data, function(key, value){
+                var downloadbutton = tableContent[key];
+                downloadbutton.setAttribute('href', value.filepath);
+            })
+        })
+    }; 
 
     function setEditAction(){
         var tableContent = $('#main_table_body .edit-module');
