@@ -15,6 +15,11 @@ html, body{
     width: 100%;
     height: 100%;
 }
+select {
+    width: 150px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+ }
 .page{
     width: 100%;
     height: auto;
@@ -267,8 +272,8 @@ html, body{
 }
 
 .page .edit-module-div .edit-module-main-body{
-    width: 500px;
-    height: 420px;
+    width: 450px;
+    height: 460px;
     float: left;
     background-color:#fff;
     font-size: 14px;
@@ -337,9 +342,68 @@ html, body{
 
 .page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content{
     position: absolute;
-    top:100px;
-    left: 20px;
+    top:85px;
+    left: 10px;
     width: 100%;
     height: 100%;
     float: left;
+}
+#edit_module_General_body{
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+}
+
+#edit_module_resource_body{
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+#edit_module_defconfig_body{
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .block{
+    width: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .block label{
+    display: inline-block;
+    text-align: left;
+    width: 150px;
+    margin-left: 15px;
+}
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .block .shorttextlength{
+    vertical-align: top;
+    text-align: right;
+    width: 50px;
+    font-size: 12px;
+}
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .block .longtextlength{
+    vertical-align: top;
+    text-align: left;
+    width: 150px;
+    font-size: 12px;
+}
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .actionblock{
+    width: auto;
+    height: 40px;
+    display: block;
+    margin: 30px 0;
+}
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .actionblock input{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    left: 260px;
+    font-size: 12px;
 }

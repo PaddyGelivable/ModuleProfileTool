@@ -103,7 +103,7 @@
                             <input type="text" readonly name="catalogNameValue" id="catalog_Name_Value"></input>
                         </div>
                         <div class="block">
-                                <label for="moduleDescriptionValue">Product Code:</label>
+                                <label for="moduleDescriptionValue">Description:</label>
                                 <input type="text" readonly name="moduleDescriptionValue" id="module_Description_Value"></input>
                         </div>
                         <div class="block">
@@ -157,16 +157,73 @@
                             </ul>
                         </div>
                         <div class="edit-module-body-content" id="edit_module_body_content">
-                            <div class="edit-module-body-detailed-content">
+                            <div class="edit-module-body-detailed-content"          id="edit_module_General_body">
                                 <div class="block">
                                     <label for="editProfileRevisionValue">Profile Revision:</label>
-                                    <input type="text" name="editProfileRevisionValue" id="edit_profile_Revision_Value"></input>
+                                    <input class="shorttextlength" type="text" name="editProfileRevisionValue" id="edit_profile_Revision_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label for="editVendorIDValue">Vendor ID:</label>
+                                    <input class="shorttextlength" type="text" name="editVendorIDValue" id="edit_vendor_ID_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label for="editvendorNameValue">Vendor Name:</label>
+                                    <input class="longtextlength" type="text" name="editvendorNameValue" id="edit_vendor_Name_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label for="editcatalogNameValue">Catalog Name:</label>
+                                    <input class="longtextlength" type="text" name="editcatalogNameValue" id="edit_catalog_Name_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label for="editproductCodeValue">Product Code:</label>
+                                    <input class="shorttextlength" type="text" name="editproductCodeValue" id="edit_product_Code_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label>Product Type:</label>
+                                    <select>
+                                        <option value="0">Analog</option>
+                                        <option value="1">Digital</option>
+                                        <option value="2">Specialty</option>
+                                    </select>
+                                </div>
+                                <div class="block">
+                                    <label>Maximum Baud Rate:</label>
+                                    <select>
+                                        <option value="0">2 Mbps</option>
+                                        <option value="1">4 Mbps</option>
+                                        <option value="2">8 Mbps</option>
+                                        <option value="3">16 Mbps</option>
+                                    </select>
+                                </div>
+                                <div class="block">
+                                    <label for="editmoduleRevValue">Module Revision:</label>
+                                    <input class="shorttextlength" type="text" name="editmoduleRevValue" id="edit_module_Rev_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label for="moduleSeriesValue">Module Series:</label>
+                                    <input class="longtextlength" type="text" name="moduleSeriesValue" id="module_Series_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label for="minFWVersionValue">Minimum FW OS Version:</label>
+                                    <input class="shorttextlength" type="text" name="minFWVersionValue" id="min_FWVersion_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label id="input_Words_Label" for="inputWordsValue">Input Words:</label>
+                                    <input class="shorttextlength" type="text" name="inputWordsValue" id="input_Words_Value"></input>
+                                </div>
+                                <div class="block">
+                                    <label id="output_Words_Label" for="outputWordsValue">Output Words:</label>
+                                    <input class="shorttextlength" type="text" name="outputWordsValue" id="output_Words_Value"></input>
+                                </div>
+                                <div class="actionblock">
+                                    <input type="button" value="OK"/>
+                                    <input type="button" value="Cancel"/>
                                 </div>
                             </div>
-                            <div class="edit-module-body-detailed-content">
+                            <div class="edit-module-body-detailed-content" id="edit_module_resource_body">
                                     第二个
                             </div>
-                            <div class="edit-module-body-detailed-content">
+                            <div class="edit-module-body-detailed-content" id="edit_module_defconfig_body">
                                     第三个
                             </div>
                         </div>
