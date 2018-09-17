@@ -142,7 +142,7 @@ function initializaData(){
                     $('#output_Words_Label')[0].innerText = changeOutputText(value.producttype);
                 }
             })
-        });
+        })
     };
 
     function changeInputText(productCodeValue){
@@ -162,9 +162,46 @@ function initializaData(){
     function getProductType(productCodeValue){
         if(productCodeValue === 7)
             return 'Digital';
+        else if(productCodeValue === 8)
+            return 'Specialty';
         else if(productCodeValue === 10)
-            return 'Analog'; 
+            return 'Analog';
+        else
+            return '';  
     };
+
+    function setProductType(productCodeValue){
+        var productCodeOptions = $('#selectProductType option');
+        if(productCodeValue === 7){
+            productCodeOptions[1].selected = true;
+        }
+        else if(productCodeValue === 8){
+            productCodeOptions[2].selected = true;
+        }
+        else if(productCodeValue === 10){
+            productCodeOptions[0].selected = true;
+        }
+    };
+
+    function setBaudRate(baudRateValue){
+        var baudRateOptions = $('#selectMaxBaudRate option');
+        var baudRateFormatValue = baudRateValue + ' Mbps';
+
+        switch(baudRateFormatValue.toUpperCase()){
+            case '2 MBPS':
+                baudRateOptions[0].selected = true;
+                break;
+            case '4 MBPS':
+                baudRateOptions[1].selected = true;
+                break;
+            case '8 MBPS':
+                baudRateOptions[2].selected = true;
+                break;
+            case '16 MBPS':
+                baudRateOptions[3].selected = true;
+                break;
+        }
+    }
 
     function setDownloadFilePath(){
         var tableContent = $('#main_table_body .download-module');
@@ -193,5 +230,62 @@ function initializaData(){
     function editModuleProfile(index){
         var viewDetailed = $('#edit_module_div')[0];
         viewDetailed.style.display = 'block';
+
+        $.getJSON("modulelist.json", function(data){
+            $.each(data, function(key, value){
+                if(key === index){
+                    var profileRevisionElement = $('#edit_profile_Revision_Value')[0];
+                    var vendorIDElement = $('#edit_vendor_ID_Value')[0];
+                    var vendorNameElement = $('#edit_vendor_Name_Value')[0];
+                    var catalogNameElement = $('#edit_catalog_Name_Value')[0];
+                    var productCodeElement = $('#edit_product_Code_Value')[0];
+                    var moduleMajorRevisionElement = $('#edit_module_major_rev_Value')[0];
+                    var moduleMinorRevisionElement = $('#edit_module_minor_rev_Value')[0];
+                    var moduleSeriesElement = $('#edit_module_Series_Value')[0]; 
+                    var minFWVersionElement = $('#edit_min_FWVersion_Value')[0];
+                    var inputWordsElement = $('#edit_input_Words_Value')[0];
+                    var outputWordsElement = $('#edit_output_Words_Value')[0];
+                    profileRevisionElement.value = value.profilerevision;
+                    vendorIDElement.value = value.vendorid;
+                    vendorNameElement.value = value.vendorname;
+                    catalogNameElement.value = value.catalogname;
+                    productCodeElement.value = value.productcode;
+                    setProductType(value.producttype);
+                    setBaudRate(value.maximumbaudrate);
+                    moduleMajorRevisionElement.value = getMajorRevision(value.modulerevision);
+                    moduleMinorRevisionElement.value = getMinorRevision(value.modulerevision);
+                    moduleSeriesElement.value = value.moduleseries; 
+                    minFWVersionElement.value = value.minFWVersion;
+                    inputWordsElement.value = value.inputword;
+                    outputWordsElement.value = value.outpurword;
+                    $('#input_Words_Label')[0].innerText = changeInputText(value.producttype);   
+                    $('#output_Words_Label')[0].innerText = changeOutputText(value.producttype);
+                }
+            })
+        })
+    }
+
+    function getMajorRevision(moduleRevision){  
+        if(typeof(moduleRevision) === 'string'){
+            var arr1 = moduleRevision.split(".");
+            if(arr1.length >= 2){  
+                return arr1[0];
+            }
+            else{
+                return "";
+            }
+        }
+    }
+
+    function getMinorRevision(moduleRevision){
+        if(typeof(moduleRevision) === 'string'){
+            var arr1 = moduleRevision.split(".");
+            if(arr1.length >= 2){
+                return arr1[1];
+            } 
+            else{
+                return "";
+            }
+        }
     }
 }

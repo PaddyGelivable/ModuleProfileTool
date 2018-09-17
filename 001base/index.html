@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="block">
                                     <label>Product Type:</label>
-                                    <select>
+                                    <select id="selectProductType">
                                         <option value="0">Analog</option>
                                         <option value="1">Digital</option>
                                         <option value="2">Specialty</option>
@@ -188,7 +188,7 @@
                                 </div>
                                 <div class="block">
                                     <label>Maximum Baud Rate:</label>
-                                    <select>
+                                    <select id="selectMaxBaudRate">
                                         <option value="0">2 Mbps</option>
                                         <option value="1">4 Mbps</option>
                                         <option value="2">8 Mbps</option>
@@ -196,24 +196,27 @@
                                     </select>
                                 </div>
                                 <div class="block">
-                                    <label for="editmoduleRevValue">Module Revision:</label>
-                                    <input class="shorttextlength" type="text" name="editmoduleRevValue" id="edit_module_Rev_Value"></input>
+                                    <label>Module Revision:</label>
+                                    <span>
+                                        <input class="shorttextlength" type="text" name="editmoduleMajorRevValue" id="edit_module_major_rev_Value"></input> . <input class="shorttextlength" type="text" name="editmoduleMinorRevValue" id="edit_module_minor_rev_Value"></input>
+                                    </span>
+                                    
                                 </div>
                                 <div class="block">
-                                    <label for="moduleSeriesValue">Module Series:</label>
-                                    <input class="longtextlength" type="text" name="moduleSeriesValue" id="module_Series_Value"></input>
+                                    <label for="editmoduleSeriesValue">Module Series:</label>
+                                    <input class="shorttextlength" type="text" name="editmoduleSeriesValue" id="edit_module_Series_Value"></input>
                                 </div>
                                 <div class="block">
-                                    <label for="minFWVersionValue">Minimum FW OS Version:</label>
-                                    <input class="shorttextlength" type="text" name="minFWVersionValue" id="min_FWVersion_Value"></input>
+                                    <label for="editminFWVersionValue">Minimum FW OS Version:</label>
+                                    <input class="shorttextlength" type="text" name="editminFWVersionValue" id="edit_min_FWVersion_Value"></input>
                                 </div>
                                 <div class="block">
-                                    <label id="input_Words_Label" for="inputWordsValue">Input Words:</label>
-                                    <input class="shorttextlength" type="text" name="inputWordsValue" id="input_Words_Value"></input>
+                                    <label id="edit_input_Words_Label" for="editinputWordsValue">Input Words:</label>
+                                    <input class="shorttextlength" type="text" name="editinputWordsValue" id="edit_input_Words_Value"></input>
                                 </div>
                                 <div class="block">
-                                    <label id="output_Words_Label" for="outputWordsValue">Output Words:</label>
-                                    <input class="shorttextlength" type="text" name="outputWordsValue" id="output_Words_Value"></input>
+                                    <label id="edit_output_Words_Label" for="editoutputWordsValue">Output Words:</label>
+                                    <input class="shorttextlength" type="text" name="editoutputWordsValue" id="edit_output_Words_Value"></input>
                                 </div>
                                 <div class="actionblock">
                                     <input type="button" value="OK"/>
