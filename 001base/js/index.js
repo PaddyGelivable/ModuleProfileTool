@@ -1,9 +1,13 @@
 $(document).ready(function(){
-    tab();
-    initializaData();
+    initializeLayout();
+    initializeData();
+    initializeAction();
 });
 
-function tab(){
+var currentEditIndex;
+var moduleInfoList;
+
+function initializeLayout(){
     var headerList = $('#body_header a');
     var contentList = $('#body_content .body-detailed-content');
 
@@ -56,17 +60,83 @@ function setRowStyle(){
     }
 };
 
-function initializaData(){
-    $.getJSON("modulelist.json", function(data){
+function ajaxHelper(uri, method, data) {
+    return $.ajax({
+        type: method,
+        url: uri,
+        dataType: 'json',
+        contentType: 'application/json',
+        data: data ? JSON.stringify(data) : null
+    });
+}
+
+function initializeAction(){
+    $('#btnSend').click(function() {
+         ajaxHelper("http://localhost:58522/api/ModuleInfoes"+ "/" + currentEditIndex, 'PUT', GetJsonData()).done(function (data) {
+             console.dir(data);
+        });
+    })
+}
+
+function GetJsonData() {
+    var currentEditModule = moduleInfoList[currentEditIndex - 1];
+    currentEditModule.ProfileRevision = $('#edit_profile_Revision_Value').val();
+    currentEditModule.VendorName = $('#edit_vendor_Name_Value').val();
+    currentEditModule.VendorID = $('#edit_vendor_ID_Value').val();
+    currentEditModule.CatalogName = $('#edit_catalog_Name_Value').val();
+    currentEditModule.ProductCode = $('#edit_product_Code_Value').val();
+    currentEditModule.ModuleSeries = $('#edit_module_Series_Value').val();
+    currentEditModule.MinFWVersion = $('#edit_min_FWVersion_Value').val();
+    currentEditModule.InputWord = $('#edit_input_Words_Value').val();
+    currentEditModule.OutPutWord = $('#edit_output_Words_Value').val();
+    currentEditModule.ProductType = getProductTypeValue();
+    currentEditModule.MaximumBaudRate = getMaximumBaudRateValue();
+    currentEditModule.ModuleRevision = $('#edit_module_major_rev_Value').val() + "." + $('#edit_module_minor_rev_Value').val();
+    //currentEditModule.ModuleID = $('#edit_profile_Revision_Value').val();
+    //currentEditModule.Description = $('#edit_product_Code_Value').val();
+    //currentEditModule.MaximumLength = $('#edit_product_Code_Value').val();
+    //currentEditModule.FilePath = $('#edit_product_Code_Value').val();
+    return currentEditModule;
+}
+
+function getProductTypeValue() {
+    var productCodeOptions = $('#selectProductType option');
+
+    if(productCodeOptions[0].selected === true)
+        return 10;
+    else if(productCodeOptions[1].selected === true)
+        return 7;
+    else if(productCodeOptions[2].selected === true)
+        return 8;
+    else
+        return 7;
+}
+
+function getMaximumBaudRateValue() {
+    var baudRateOptions = $('#selectMaxBaudRate option');
+
+    if(baudRateOptions[0].selected === true)
+        return 2;
+    else if(baudRateOptions[1].selected === true)
+        return 4;
+    else if(baudRateOptions[2].selected === true)
+        return 8;
+    else
+        return 8; 
+}
+
+function initializeData(){
+    ajaxHelper("http://localhost:58522/api/ModuleInfoes", 'GET').done(function (data) {
+        moduleInfoList = data;
         var modulelist = '';
         $.each(data, function(key, value){
             modulelist += '<tr>';
-            modulelist += '<td>'+value.vendorname+'</td>';
-            modulelist += '<td>'+value.moduleid+'</td>';
-            modulelist += '<td>'+value.productcode+'</td>';
-            modulelist += '<td>'+value.catalogname+'</td>';
-            modulelist += '<td>'+value.modulerevision+'</td>';
-            modulelist += '<td>'+value.profilerevision+'</td>';
+            modulelist += '<td>'+value.VendorName+'</td>';
+            modulelist += '<td>'+value.ModuleID+'</td>';
+            modulelist += '<td>'+value.ProductCode+'</td>';
+            modulelist += '<td>'+value.CatalogName+'</td>';
+            modulelist += '<td>'+value.ModuleRevision+'</td>';
+            modulelist += '<td>'+value.ProfileRevision+'</td>';
             modulelist += '<td>'+'<span><a class="view-module" title="View module" href="#">View</a> <a class="download-module" title="Download module" download>Download</a> <a class="edit-module" href="#" title="Edit module">Edit</a></span>'+'</td>';
             modulelist += '</tr>';
         });
@@ -76,7 +146,7 @@ function initializaData(){
         setDownloadFilePath();
         setEditAction();
         setCloseAction();
-    });
+        });
 
     function setCloseAction(){
         var closeBtn = $('#close_button')[0];
@@ -109,40 +179,37 @@ function initializaData(){
         var viewDetailed = $('#view_detailed')[0];
         viewDetailed.style.display = 'block';
 
-        $.getJSON("modulelist.json", function(data){
-            $.each(data, function(key, value){
-                if(key === index){
-                    var profileRevisionElement = $('#profile_Revision_Value')[0];
-                    var vendorIDElement = $('#vendor_ID_Value')[0];
-                    var vendorNameElement = $('#vendor_Name_Value')[0];
-                    var catalogNameElement = $('#catalog_Name_Value')[0];
-                    var moduledescriptionElement = $('#module_Description_Value')[0];
-                    var productCodeElement = $('#product_Code_Value')[0];
-                    var productTypeElement = $('#product_Type_Value')[0];
-                    var maxBaudRateElement = $('#max_BaudRate_Value')[0];
-                    var moduleRevisionElement = $('#module_Rev_Value')[0];
-                    var moduleSeriesElement = $('#module_Series_Value')[0];
-                    var minFWVersionElement = $('#min_FWVersion_Value')[0];
-                    var inputWordsElement = $('#input_Words_Value')[0];
-                    var outputWordsElement = $('#output_Words_Value')[0];
-                    profileRevisionElement.value = value.profilerevision;
-                    vendorIDElement.value = value.vendorid;
-                    vendorNameElement.value = value.vendorname;
-                    catalogNameElement.value = value.catalogname;
-                    moduledescriptionElement.value = value.description;
-                    productCodeElement.value = value.productcode;
-                    productTypeElement.value = getProductType(value.producttype);
-                    maxBaudRateElement.value = value.maximumbaudrate + ' Mbps';
-                    moduleRevisionElement.value = value.modulerevision;
-                    moduleSeriesElement.value = value.moduleseries;
-                    minFWVersionElement.value = value.minFWVersion;
-                    inputWordsElement.value = value.inputword;
-                    outputWordsElement.value = value.outpurword;
-                    $('#input_Words_Label')[0].innerText = changeInputText(value.producttype);   
-                    $('#output_Words_Label')[0].innerText = changeOutputText(value.producttype);
-                }
-            })
-        })
+        index = index + 1;
+        ajaxHelper("http://localhost:58522/api/ModuleInfoes" + "/" + index, 'GET').done(function(data){
+            var profileRevisionElement = $('#profile_Revision_Value')[0];
+            var vendorIDElement = $('#vendor_ID_Value')[0];
+            var vendorNameElement = $('#vendor_Name_Value')[0];
+            var catalogNameElement = $('#catalog_Name_Value')[0];
+            var moduledescriptionElement = $('#module_Description_Value')[0];
+            var productCodeElement = $('#product_Code_Value')[0];
+            var productTypeElement = $('#product_Type_Value')[0];
+            var maxBaudRateElement = $('#max_BaudRate_Value')[0];
+            var moduleRevisionElement = $('#module_Rev_Value')[0];
+            var moduleSeriesElement = $('#module_Series_Value')[0];
+            var minFWVersionElement = $('#min_FWVersion_Value')[0];
+            var inputWordsElement = $('#input_Words_Value')[0];
+            var outputWordsElement = $('#output_Words_Value')[0];
+            profileRevisionElement.value = data.ProfileRevision;
+            vendorIDElement.value = data.VendorID;
+            vendorNameElement.value = data.VendorName;
+            catalogNameElement.value = data.CatalogName;
+            moduledescriptionElement.value = data.Description;
+            productCodeElement.value = data.ProductCode;
+            productTypeElement.value = getProductType(data.ProductType);
+            maxBaudRateElement.value = data.MaximumBaudRate + ' Mbps';
+            moduleRevisionElement.value = data.ModuleRevision;
+            moduleSeriesElement.value = data.ModuleSeries;
+            minFWVersionElement.value = data.MinFWVersion;
+            inputWordsElement.value = data.InputWord;
+            outputWordsElement.value = data.OutPutWord;
+            $('#input_Words_Label')[0].innerText = changeInputText(data.ProductType);   
+            $('#output_Words_Label')[0].innerText = changeOutputText(data.ProductType);
+        });
     };
 
     function changeInputText(productCodeValue){
@@ -168,20 +235,23 @@ function initializaData(){
             return 'Analog';
         else
             return '';  
-    };
+    }
 
     function setProductType(productCodeValue){
         var productCodeOptions = $('#selectProductType option');
-        if(productCodeValue === 7){
-            productCodeOptions[1].selected = true;
+
+        switch(productCodeValue){
+            case 10:
+                productCodeOptions[0].selected = true;
+                break;
+            case 7:
+                productCodeOptions[1].selected = true;
+                break;
+            case 8:
+                productCodeOptions[2].selected = true;
+                break;
         }
-        else if(productCodeValue === 8){
-            productCodeOptions[2].selected = true;
-        }
-        else if(productCodeValue === 10){
-            productCodeOptions[0].selected = true;
-        }
-    };
+    }
 
     function setBaudRate(baudRateValue){
         var baudRateOptions = $('#selectMaxBaudRate option');
@@ -231,38 +301,36 @@ function initializaData(){
         var viewDetailed = $('#edit_module_div')[0];
         viewDetailed.style.display = 'block';
 
-        $.getJSON("modulelist.json", function(data){
-            $.each(data, function(key, value){
-                if(key === index){
-                    var profileRevisionElement = $('#edit_profile_Revision_Value')[0];
-                    var vendorIDElement = $('#edit_vendor_ID_Value')[0];
-                    var vendorNameElement = $('#edit_vendor_Name_Value')[0];
-                    var catalogNameElement = $('#edit_catalog_Name_Value')[0];
-                    var productCodeElement = $('#edit_product_Code_Value')[0];
-                    var moduleMajorRevisionElement = $('#edit_module_major_rev_Value')[0];
-                    var moduleMinorRevisionElement = $('#edit_module_minor_rev_Value')[0];
-                    var moduleSeriesElement = $('#edit_module_Series_Value')[0]; 
-                    var minFWVersionElement = $('#edit_min_FWVersion_Value')[0];
-                    var inputWordsElement = $('#edit_input_Words_Value')[0];
-                    var outputWordsElement = $('#edit_output_Words_Value')[0];
-                    profileRevisionElement.value = value.profilerevision;
-                    vendorIDElement.value = value.vendorid;
-                    vendorNameElement.value = value.vendorname;
-                    catalogNameElement.value = value.catalogname;
-                    productCodeElement.value = value.productcode;
-                    setProductType(value.producttype);
-                    setBaudRate(value.maximumbaudrate);
-                    moduleMajorRevisionElement.value = getMajorRevision(value.modulerevision);
-                    moduleMinorRevisionElement.value = getMinorRevision(value.modulerevision);
-                    moduleSeriesElement.value = value.moduleseries; 
-                    minFWVersionElement.value = value.minFWVersion;
-                    inputWordsElement.value = value.inputword;
-                    outputWordsElement.value = value.outpurword;
-                    $('#input_Words_Label')[0].innerText = changeInputText(value.producttype);   
-                    $('#output_Words_Label')[0].innerText = changeOutputText(value.producttype);
-                }
-            })
-        })
+        index = index + 1;
+        currentEditIndex = index;
+        ajaxHelper("http://localhost:58522/api/ModuleInfoes" + "/" + index, 'GET').done(function(value){
+            var profileRevisionElement = $('#edit_profile_Revision_Value')[0];
+            var vendorIDElement = $('#edit_vendor_ID_Value')[0];
+            var vendorNameElement = $('#edit_vendor_Name_Value')[0];
+            var catalogNameElement = $('#edit_catalog_Name_Value')[0];
+            var productCodeElement = $('#edit_product_Code_Value')[0];
+            var moduleMajorRevisionElement = $('#edit_module_major_rev_Value')[0];
+            var moduleMinorRevisionElement = $('#edit_module_minor_rev_Value')[0];
+            var moduleSeriesElement = $('#edit_module_Series_Value')[0]; 
+            var minFWVersionElement = $('#edit_min_FWVersion_Value')[0];
+            var inputWordsElement = $('#edit_input_Words_Value')[0];
+            var outputWordsElement = $('#edit_output_Words_Value')[0];
+            profileRevisionElement.value = value.ProfileRevision;
+            vendorIDElement.value = value.VendorID;
+            vendorNameElement.value = value.VendorName;
+            catalogNameElement.value = value.CatalogName;
+            productCodeElement.value = value.ProductCode;
+            setProductType(value.ProductType);
+            setBaudRate(value.MaximumBaudRate);
+            moduleMajorRevisionElement.value = getMajorRevision(value.ModuleRevision);
+            moduleMinorRevisionElement.value = getMinorRevision(value.ModuleRevision);
+            moduleSeriesElement.value = value.ModuleSeries; 
+            minFWVersionElement.value = value.MinFWVersion;
+            inputWordsElement.value = value.InputWord;
+            outputWordsElement.value = value.OutPutWord;
+            $('#input_Words_Label')[0].innerText = changeInputText(value.ProductType);   
+            $('#output_Words_Label')[0].innerText = changeOutputText(value.ProductType);
+        });
     }
 
     function getMajorRevision(moduleRevision){  
