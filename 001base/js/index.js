@@ -71,11 +71,21 @@ function ajaxHelper(uri, method, data) {
 }
 
 function initializeAction(){
-    $('#btnSend').click(function() {
-         ajaxHelper("http://localhost:58522/api/ModuleInfoes"+ "/" + currentEditIndex, 'PUT', GetJsonData()).done(function (data) {
-             console.dir(data);
+    $('#btnUpdate').click(function() {
+         ajaxHelper("http://localhost:58522/api/ModuleInfoes"+ "/" + currentEditIndex, 'PUT', GetJsonData()).done(function () {
+            currentEditIndex = -1;
+            var viewDetailed = $('#edit_module_div')[0];
+            viewDetailed.style.display = 'none';
+            location.reload(true);
         });
-    })
+    });
+
+    $('#btnCancel').click(function(){
+        currentEditIndex = -1;
+        var viewDetailed = $('#edit_module_div')[0];
+        viewDetailed.style.display = 'none';
+        location.reload(true);
+    });
 }
 
 function GetJsonData() {
@@ -157,6 +167,7 @@ function initializeData(){
 
         var closeEditViewBtn = $('#close_button_edit_module_button')[0];
         closeEditViewBtn.onclick = function(){
+            currentEditIndex = -1;
             var editDetailed = $('#edit_module_div')[0];
             editDetailed.style.display = 'none';
         }
