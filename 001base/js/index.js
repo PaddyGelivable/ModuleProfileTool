@@ -34,7 +34,6 @@ function initializeLayout(){
         var li = editModuleHeaderList[i];
         (function (i){
            li.onclick = function(){
-            console.log(editModuleContentList[lastEditModuleOne]);
             editModuleHeaderList[lastEditModuleOne].className = "";
             editModuleContentList[lastEditModuleOne].style.display="none";
             this.className = "current";
@@ -84,7 +83,6 @@ function initializeAction(){
         currentEditIndex = -1;
         var viewDetailed = $('#edit_module_div')[0];
         viewDetailed.style.display = 'none';
-        location.reload(true);
     });
 }
 
@@ -218,22 +216,22 @@ function initializeData(){
             minFWVersionElement.value = data.MinFWVersion;
             inputWordsElement.value = data.InputWord;
             outputWordsElement.value = data.OutPutWord;
-            $('#input_Words_Label')[0].innerText = changeInputText(data.ProductType);   
+            $('#input_Words_Label')[0].innerText = changeInputText(data.ProductType);
             $('#output_Words_Label')[0].innerText = changeOutputText(data.ProductType);
         });
     };
 
-    function changeInputText(productCodeValue){
-        if(productCodeValue === 7)
+    function changeInputText(productTypeValue){
+        if(productTypeValue === 7)
             return 'Input Bits:';
-        else if(productCodeValue === 10)
+        else
             return 'Input Words:'; 
     };
 
-    function changeOutputText(productCodeValue){
-        if(productCodeValue === 7)
+    function changeOutputText(productTypeValue){
+        if(productTypeValue === 7)
             return 'Output Bits:';
-        else if(productCodeValue === 10)
+        else
             return 'Outputs Words:'; 
     };
 
@@ -339,8 +337,8 @@ function initializeData(){
             minFWVersionElement.value = value.MinFWVersion;
             inputWordsElement.value = value.InputWord;
             outputWordsElement.value = value.OutPutWord;
-            $('#input_Words_Label')[0].innerText = changeInputText(value.ProductType);   
-            $('#output_Words_Label')[0].innerText = changeOutputText(value.ProductType);
+            $('#edit_input_Words_Label')[0].innerText = changeInputText(value.ProductType);   
+            $('#edit_output_Words_Label')[0].innerText = changeOutputText(value.ProductType);
         });
     }
 

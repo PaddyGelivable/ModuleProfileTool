@@ -157,7 +157,7 @@
                             </ul>
                         </div>
                         <div class="edit-module-body-content" id="edit_module_body_content">
-                            <div class="edit-module-body-detailed-content"          id="edit_module_General_body">
+                            <div class="edit-module-body-detailed-content" id="edit_module_General_body">
                                 <div class="block">
                                     <label for="editProfileRevisionValue">Profile Revision:</label>
                                     <input class="shorttextlength" type="text" name="editProfileRevisionValue" id="edit_profile_Revision_Value"></input>
@@ -218,16 +218,33 @@
                                     <label id="edit_output_Words_Label" for="editoutputWordsValue">Output Words:</label>
                                     <input class="shorttextlength" type="text" name="editoutputWordsValue" id="edit_output_Words_Value"></input>
                                 </div>
-                                <div class="actionblock">
-                                    <input type="button" id="btnUpdate" value="OK"/>
-                                    <input type="button" id="btnCancel" value="Cancel"/>
-                                </div>
                             </div>
                             <div class="edit-module-body-detailed-content" id="edit_module_resource_body">
-                                    第二个
+                                <div class="resource-block">
+                                    <label for="editmoduleImageValue">Image:</label>
+                                    <input type="text" class="edit-module-resource-Image" readonly name="editmoduleImageValue" id="edit_module_Image_Value"></input>
+                                    <input type="button" class="edit-module-select-resource-button" id="btnSelectModuleImage" value="..."></input>
+                                </div>
+                                <div class="resource-block">
+                                    <label for="editmoduleIconValue">Icon:</label>
+                                    <input type="text" class="edit-module-resource-Image" readonly name="editmoduleIconValue" id="edit_module_Icon_Value"></input>
+                                    <input type="button" class="edit-module-select-resource-button" id="btnSelectModuleIcon" value="..."></input>
+                                </div>
+                                <div class="resource-block">
+                                    <label>Description:</label>
+                                </div>
+                                <div class="resource-block">
+                                    <textarea cols="50" rows="3"></textarea>
+                                </div>
                             </div>
                             <div class="edit-module-body-detailed-content" id="edit_module_defconfig_body">
                                     第三个
+                            </div>
+                        </div>
+                        <div class="edit-module-body-footer" id="edit_module_body_footer">
+                            <div class="actionblock">
+                                <input type="button" id="btnUpdate" value="OK"/>
+                                <input type="button" id="btnCancel" value="Cancel"/>
                             </div>
                         </div>
                     </div>
