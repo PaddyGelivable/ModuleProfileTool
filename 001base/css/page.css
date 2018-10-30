@@ -24,6 +24,8 @@ select {
     width: 100%;
     height: auto;
 }
+
+/*Header*/
 .header{
     width: 100%;
     height: auto;
@@ -83,6 +85,7 @@ select {
     text-decoration: underline;
 }
 
+/*Page Main body header*/
 .page .main-body .body-header{
     width: 100%;
     height: 45px;
@@ -106,6 +109,8 @@ select {
 .page .main-body .body-header a:hover{
     color: #29ABE2;
 }
+
+/*Page main body content*/
 .page .main-body .body-content {
     width: 100%;
     height: auto;
@@ -151,9 +156,10 @@ select {
 }
 .page .main-body .body-content #upmodule_content{
     width: 100%;
+    background-color: #FFFFFF;
     height: auto;
-    background-color: green;
     display: none;
+    font-size: 14px;
 }
 .page .main-body .body-content #expansionmodule_content{
     width: 100%;
@@ -167,6 +173,8 @@ select {
     background-color: purple;
     display: none;
 }
+
+/*Module List page*/
 .page .main-body .body-content .body-detailed-content #main_table_body a{
     color: #383838;
     margin-left: 2px;
@@ -180,6 +188,49 @@ select {
     text-decoration: underline;
 }
 
+/*Create UP Module*/
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content{
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    float: left;
+    position: relative;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block{
+    width: auto;
+    display: block;
+    margin: 5px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block label{
+    display: inline-block;
+    text-align: left;
+    width: 200px;
+    margin-left: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .shorttextlength{
+    vertical-align: top;
+    text-align: right;
+    width: 50px;
+    font-size: 14px;
+    margin-left: 60px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content  .longtextlength{
+    vertical-align: top;
+    text-align: left;
+    width: 150px;
+    font-size: 14px;
+    margin-left: 60px;
+}
+
+/*Create Expansion Module*/
+
+/*View Detailed page*/
 .page .view-detailed {
     position: fixed;
     left: 0;
@@ -260,6 +311,7 @@ select {
     display: inline-block
 }
 
+/* Edit module page */
 .page .edit-module-div {
     position: fixed;
     left: 0;
@@ -386,6 +438,12 @@ select {
     width: 150px;
     margin-left: 15px;
 }
+
+.page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .config-block input{
+    display: inline-block;
+    text-align: left;
+    margin-left: 15px;
+} 
 
 .page .edit-module-div .edit-module-main-body .edit-module-body .edit-module-body-content .edit-module-body-detailed-content .resource-block label{
     display: inline-block;
