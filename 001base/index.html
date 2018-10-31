@@ -10,7 +10,6 @@
     <script src="./js/index.js"></script> 
 </head>
 <body>
-    <!-- <form id="mainForm" runat="server"> -->
         <div id"page" class="page">
             <!-- Header -->
             <div class="header" id="header">
@@ -118,7 +117,9 @@
                             </div>
                             <div class="block">
                                 <label for="inputModuleRevValue">Module Revision:</label>
-                                <input type="text" name="inputModuleRevValue" id="input_Module_Rev_Value"></input>
+                                <span>
+                                    <input class="shorttextlength" type="text" name="inputmoduleMajorRevValue" id="input_module_major_rev_Value"></input> . <input class="shorttextlength" type="text" name="inputmoduleMinorRevValue" id="input_module_minor_rev_Value"></input>
+                                </span>
                             </div>
                             <div class="block">
                                 <label for="inputModuleSeriesValue">Module Series:</label>
@@ -173,12 +174,130 @@
                                 </select>
                             </div>
                             <div class="block">
-                                <input type="checkbox" value="inputThirdParty"> Support a third party tool in CCW</input>
+                                <input type="checkbox" class="input-third-party" value="inputThirdParty"> Support a third party tool in CCW</input>
+                            </div>
+                            <div class="block">
+                                <input type="button" class="create-upmodule-btn" id="btnCreate" value="Create"/>
+                                <input type="button" class="create-upmodule-btn" id="btnClear" value="Clear All"/>
                             </div>
                         </div>
                     </div>
-                    <div class="body-detailed-content" id="expansionmodule_content">第三个</div>
-                    <div class="body-detailed-content" id="uploadmodule_content">第四个</div>
+                    <div class="body-detailed-content" id="expansionmodule_content">
+                        <div class="expmodule-body-detailed-content">
+                            <div class="block">
+                                <label for="inputExpProfileRevisionValue">Profile Revision:</label>
+                                    <input type="text" class="shorttextlength" name="inputExpProfileRevisionValue" id="input_Exp_Profile_Revision_Value"></input>
+                                </div>
+                            <div class="block">
+                                <label for="inputExpVendorIDValue">Vendor ID:</label>
+                                <input type="text" class="shorttextlength" name="inputExpVendorIDValue" id="input_Exp_Vendor_ID_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpVendorNameValue">Vendor Name:</label>
+                                <input type="text" class="longtextlength" name="inputExpVendorNameValue" id="input_Exp_Vendor_Name_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpCatalogNameValue">Catalog Name:</label>
+                                <input type="text" class="longtextlength" name="inputExpCatalogNameValue" id="input_Exp_Catalog_Name_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpProductCodeValue">Product Code:</label>
+                                <input type="text" class="shorttextlength" name="inputExpProductCodeValue" id="input_Exp_Product_Code_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label>Product Type:</label>
+                                <select id="inputExpSelectProductType">
+                                    <option value="0">Analog</option>
+                                    <option value="1">Digital</option>
+                                    <option value="2">Specialty</option>
+                                </select>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpMaxBaudRateValue">Maximum Baud Rate:</label>
+                                <select id="inputExpMaxBaudRateValue">
+                                    <option value="0">2 Mbps</option>
+                                    <option value="1">4 Mbps</option>
+                                    <option value="2">8 Mbps</option>
+                                    <option value="3">16 Mbps</option>
+                                </select>
+                            </div>
+                            <div class="block">
+                                <label>Module Revision:</label>
+                                <span>
+                                    <input class="shorttextlength" type="text" name="inputexpmoduleMajorRevValue" id="input_exp_module_major_rev_Value"></input> . <input class="shorttextlength" type="text" name="inputexpmoduleMinorRevValue" id="input_exp_module_minor_rev_Value"></input>
+                                </span>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpModuleSeriesValue">Module Series:</label>
+                                <input type="text" class="shorttextlength" name="inputExpModuleSeriesValue" id="input_Exp_Module_Series_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpMinFWVersionValue">Minimum FW OS Version:</label>
+                                <input type="text" class="shorttextlength" name="inputExpMinFWVersionValue" id="input_Exp_Min_FWVersion_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label id="input_Exp_Input_Words_Label" for="inputExpInputWordsValue">Input Words:</label>
+                                <input type="text" class="shorttextlength" name="inputExpInputWordsValue" id="input_Exp_Input_Words_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label id="input_Exp_Output_Words_Label" for="inputExpOutputWordsValue">Output Words:</label>
+                                <input type="text" class="shorttextlength" name="inputExpOutputWordsValue" id="input_Exp_Output_Words_Value"></input>
+                            </div>
+                            <div class="block">
+                                <label for="inputExpMaximumLengthValue">Maximum Length:</label>
+                                <input class="shorttextlength" type="text" name="inputExpMaximumLengthValue" class="shorttextlength" id="input_Exp_Maximum_Length_Value"></input>
+                                <label for="inputExpMaximumLengthValue"> Words(16 bits)</label>
+                            </div>
+                            <div class="block">
+                                <label>Image:</label>
+                                <input type="text" class="input-exp-module-resource-Image" readonly name="inputExpModuleImageValue" id="input_exp_module_Image_Value"></input>
+                                <input type="button" class="input-exp-module-select-resource-button" id="btnExpInputSelectModuleImage" value="..."></input>
+                            </div>
+                            <div class="block">
+                                <label>Icon:</label>
+                                <input type="text" class="input-exp-module-resource-Image" readonly name="inputexpmoduleIconValue" id="input_exp_module_Icon_Value"></input>
+                                <input type="button" class="input-exp-module-select-resource-button" id="btnExpInputSelectModuleIcon" value="..."></input>
+                            </div>
+                            <div class="block">
+                                <label>Description:</label>
+                            </div>
+                            <div class="block">
+                                <textarea cols="50" rows="3"></textarea>
+                            </div>
+                            <div class="block">
+                                <label>Default Configuration:</label>
+                            </div>
+                            <div class="block">
+                                <textarea cols="50" rows="10"></textarea>
+                            </div>
+                            <div class="block">
+                                <label>Radix:</label>
+                                <select id="selectRadixValue">
+                                    <option value="0">ASCII</option>
+                                    <option value="1">Binary</option>
+                                    <option value="2">Dec</option>
+                                    <option value="3">Hex</option>
+                                </select>
+                            </div>
+                            <div class="block">
+                                <input type="checkbox" class="input-exp-third-party" value="inputThirdParty"> Support a third party tool in CCW</input>
+                            </div>
+                            <div class="block">
+                                <input type="button" class="create-expmodule-btn" id="btnCreate" value="Create"/>
+                                <input type="button" class="create-expmodule-btn" id="btnClear" value="Clear All"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-detailed-content" id="uploadmodule_content">
+                        <div class="upload-wrap">
+                            <div class="upload-before" id="upload_before">
+                                <i class="upload-file-icon"></i>
+                                <h4>Upload file</h4>
+                                <input type="file" id="filedatacode" class="uploadfile"/>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div> 
             </div>
             <!-- View Detailed -->
@@ -303,7 +422,6 @@
                                     <span>
                                         <input class="shorttextlength" type="text" name="editmoduleMajorRevValue" id="edit_module_major_rev_Value"></input> . <input class="shorttextlength" type="text" name="editmoduleMinorRevValue" id="edit_module_minor_rev_Value"></input>
                                     </span>
-                                    
                                 </div>
                                 <div class="block">
                                     <label for="editmoduleSeriesValue">Module Series:</label>

@@ -164,14 +164,15 @@ select {
 .page .main-body .body-content #expansionmodule_content{
     width: 100%;
     height: auto;
-    background-color: yellow;
+    background-color: #FFFFFF;
     display: none;
+    font-size: 14px;
 }
 .page .main-body .body-content #uploadmodule_content{
     width: 100%;
     height: auto;
-    background-color: purple;
     display: none;
+    font-size: 14px;
 }
 
 /*Module List page*/
@@ -212,12 +213,38 @@ select {
     margin-left: 15px;
 }
 
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block textarea{
+    margin-left: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block .input-third-party{
+    margin-left: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block .create-upmodule-btn{
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block 
+.input-module-resource-Image{
+    vertical-align: top;
+    text-align: right;
+    width: 300px;
+    font-size: 14px;
+}
+
+.page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .block
+.input-module-select-resource-button{
+    width: 50px;
+    font-size: 14px;
+}
+
 .page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content .shorttextlength{
     vertical-align: top;
     text-align: right;
     width: 50px;
     font-size: 14px;
-    margin-left: 60px;
 }
 
 .page .main-body .body-content .body-detailed-content .upmodule-body-detailed-content  .longtextlength{
@@ -225,10 +252,102 @@ select {
     text-align: left;
     width: 150px;
     font-size: 14px;
-    margin-left: 60px;
 }
 
 /*Create Expansion Module*/
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content{
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    float: left;
+    position: relative;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block{
+    width: auto;
+    display: block;
+    margin: 5px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block label{
+    display: inline-block;
+    text-align: left;
+    width: 200px;
+    margin-left: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block textarea{
+    margin-left: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block .input-exp-third-party{
+    margin-left: 15px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block .create-expmodule-btn{
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block 
+.input-exp-module-resource-Image{
+    vertical-align: top;
+    text-align: right;
+    width: 300px;
+    font-size: 14px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .block
+.input-exp-module-select-resource-button{
+    width: 50px;
+    font-size: 14px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content .shorttextlength{
+    vertical-align: top;
+    text-align: right;
+    width: 50px;
+    font-size: 14px;
+}
+
+.page .main-body .body-content .body-detailed-content .expmodule-body-detailed-content  .longtextlength{
+    vertical-align: top;
+    text-align: left;
+    width: 150px;
+    font-size: 14px;
+}
+
+/*Upload Modules*/
+.page .main-body .body-content .body-detailed-content .upload-wrap{
+    width: 100%;
+    height: 150px;
+    background-color: #ffffff;
+    float: left;
+    position: relative;
+    border: 1px dashed #ddd;
+    text-align: center;
+}
+
+.page .main-body .body-content .body-detailed-content .upload-wrap .upload-file-icon{
+    display: inline-block;
+    width: 60px;
+    height: 80px;
+    background: url("../image/file-upload.png") no-repeat 0px 17px;
+    background-size: auto 60px;
+    margin-top: 10px;
+}
+
+.page .main-body .body-content .body-detailed-content .upload-wrap .uploadfile{
+    opacity: 0;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
 /*View Detailed page*/
 .page .view-detailed {
