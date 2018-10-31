@@ -330,7 +330,29 @@ select {
     text-align: center;
 }
 
-.page .main-body .body-content .body-detailed-content .upload-wrap .upload-file-icon{
+.page .main-body .body-content .body-detailed-content .upload-wrap .none{
+    display: none;
+}
+
+.page .main-body .body-content .body-detailed-content .upload-wrap .uploading .uploading-file-icon{
+    display: inline-block;
+    width: 60px;
+    height: 80px;
+    background: url("../image/coding-file.png") no-repeat 0px 17px;
+    background-size: auto 60px;
+    margin-top: 10px;
+} 
+
+.page .main-body .body-content .body-detailed-content .upload-wrap .upload-after .file-icon{
+    display: inline-block;
+    width: 60px;
+    height: 80px;
+    background: url("../image/excel.png") no-repeat 0px 17px;
+    background-size: auto 60px;
+    margin-top: 10px;
+} 
+
+.page .main-body .body-content .body-detailed-content .upload-wrap .upload-before .upload-file-icon{
     display: inline-block;
     width: 60px;
     height: 80px;
@@ -339,7 +361,7 @@ select {
     margin-top: 10px;
 }
 
-.page .main-body .body-content .body-detailed-content .upload-wrap .uploadfile{
+.page .main-body .body-content .body-detailed-content .upload-wrap .upload-before .uploadfile{
     opacity: 0;
     cursor: pointer;
     left: 0;
