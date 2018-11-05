@@ -100,9 +100,9 @@ function GetJsonData() {
     currentEditModule.ProductType = getProductTypeValue();
     currentEditModule.MaximumBaudRate = getMaximumBaudRateValue();
     currentEditModule.ModuleRevision = $('#edit_module_major_rev_Value').val() + "." + $('#edit_module_minor_rev_Value').val();
-    //currentEditModule.ModuleID = $('#edit_profile_Revision_Value').val();
-    //currentEditModule.Description = $('#edit_product_Code_Value').val();
-    //currentEditModule.MaximumLength = $('#edit_product_Code_Value').val();
+    currentEditModule.ModuleID = $('#edit_module_ID_Value').val();
+    currentEditModule.Description = $('#edit_Module_Description_Value').val();
+    currentEditModule.MaximumLength = $('#edit_Maximum_Length_Value').val();
     //currentEditModule.FilePath = $('#edit_product_Code_Value').val();
     return currentEditModule;
 }
@@ -314,6 +314,7 @@ function initializeData(){
         currentEditIndex = index;
         ajaxHelper("http://localhost:58522/api/ModuleInfoes" + "/" + index, 'GET').done(function(value){
             var profileRevisionElement = $('#edit_profile_Revision_Value')[0];
+            var moduleIDElement = $('#edit_module_ID_Value')[0];
             var vendorIDElement = $('#edit_vendor_ID_Value')[0];
             var vendorNameElement = $('#edit_vendor_Name_Value')[0];
             var catalogNameElement = $('#edit_catalog_Name_Value')[0];
@@ -324,8 +325,15 @@ function initializeData(){
             var minFWVersionElement = $('#edit_min_FWVersion_Value')[0];
             var inputWordsElement = $('#edit_input_Words_Value')[0];
             var outputWordsElement = $('#edit_output_Words_Value')[0];
+            var moduleDescriptionElement = $('#edit_Module_Description_Value')[0];
+            var maximumLengthElement = $('#edit_Maximum_Length_Value')[0];
+            var imageFileNameElement = $('#edit_module_Image_Value')[0];
+            var iconFileNameElement = $('#edit_module_Icon_Value')[0];
+            var moduleConfigurationElement = $('#edit_Module_Condfiguration_Value')[0];
+            var thirdPartyToolSupportedElement = $('#edit_Module_ThirdParty_Support')[0];
             profileRevisionElement.value = value.ProfileRevision;
             vendorIDElement.value = value.VendorID;
+            moduleIDElement.value = value.ModuleID;
             vendorNameElement.value = value.VendorName;
             catalogNameElement.value = value.CatalogName;
             productCodeElement.value = value.ProductCode;
@@ -339,6 +347,18 @@ function initializeData(){
             outputWordsElement.value = value.OutPutWord;
             $('#edit_input_Words_Label')[0].innerText = changeInputText(value.ProductType);   
             $('#edit_output_Words_Label')[0].innerText = changeOutputText(value.ProductType);
+            moduleDescriptionElement.value = value.Description;
+            maximumLengthElement.value = value.MaximumLength;
+            imageFileNameElement.value =value.ImageName;
+            iconFileNameElement.value = value.IconName;
+            moduleConfigurationElement.value = value.DefaultConfigurationData;
+            
+            if(value.IsSupportThirdPartyTool){
+                $('#edit_Module_ThirdParty_Support').prop("checked", true);
+            }
+            else{
+                $('#edit_Module_ThirdParty_Support').prop("checked", false);
+            }
         });
     }
 
